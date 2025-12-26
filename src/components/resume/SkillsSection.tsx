@@ -22,15 +22,15 @@ export function SkillsSection() {
   }, {} as Record<Skill['category'], Skill[]>);
 
   return (
-    <section className="py-20 md:py-28 px-6 lg:px-8 bg-secondary/30">
+    <section className="py-12 md:py-16 px-6 lg:px-8 bg-secondary/30">
       <div className="max-w-5xl mx-auto">
         <ScrollReveal>
-          <h2 className="text-3xl md:text-4xl font-light tracking-wide text-center mb-16">
+          <h2 className="text-2xl md:text-3xl font-light tracking-wide text-center mb-10">
             Skills & Technologies
           </h2>
         </ScrollReveal>
 
-        <div className="space-y-12">
+        <div className="space-y-8">
           {categoryOrder.map((category, categoryIndex) => (
             <ScrollReveal key={category} delay={categoryIndex * 0.1}>
               <div className="space-y-4">

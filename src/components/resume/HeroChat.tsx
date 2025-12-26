@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Bot, ChevronDown, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Send, Bot, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { resumeInfo } from '@/data/resume';
 
 interface Message {
   id: string;
@@ -18,7 +17,6 @@ const quickQuestions = [
 ];
 
 export function HeroChat() {
-  const [isExpanded, setIsExpanded] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -31,8 +29,6 @@ export function HeroChat() {
   const handleSend = async (text?: string) => {
     const messageText = text || input;
     if (!messageText.trim() || isLoading) return;
-
-    setIsExpanded(true);
     
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -58,7 +54,7 @@ export function HeroChat() {
 
   return (
     <motion.div
-      className="w-full max-w-xl"
+      className="w-full max-w-2xl"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.5 }}
@@ -74,89 +70,78 @@ export function HeroChat() {
               Ask me anything about my background
             </span>
           </div>
-          {messages.length > 0 && (
-            <button 
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <ChevronDown className={`size-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-            </button>
+        </div>
+
+        {/* Messages Area - always visible with minimum height */}
+        <div className="h-48 overflow-y-auto p-4 space-y-3 bg-secondary/20">
+          {messages.length === 0 ? (
+            <div className="h-full flex flex-col items-center justify-center text-center">
+              <Bot className="size-8 text-muted-foreground/40 mb-2" />
+              <p className="text-sm text-muted-foreground/60 font-light">
+                Ask me about my skills, experience, or projects
+              </p>
+            </div>
+          ) : (
+            <>
+              {messages.map((message) => (
+                <motion.div
+                  key={message.id}
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`flex gap-2 ${message.role === 'user' ? 'flex-row-reverse' : ''}`}
+                >
+                  {message.role === 'assistant' && (
+                    <div className="shrink-0 size-6 rounded-full bg-secondary flex items-center justify-center">
+                      <Bot className="size-3" />
+                    </div>
+                  )}
+                  <div
+                    className={`max-w-[85%] rounded-xl px-3 py-2 text-sm font-light ${
+                      message.role === 'user'
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-background border border-border'
+                    }`}
+                  >
+                    {message.content}
+                  </div>
+                </motion.div>
+              ))}
+              
+              {isLoading && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex gap-2"
+                >
+                  <div className="size-6 rounded-full bg-secondary flex items-center justify-center">
+                    <Bot className="size-3" />
+                  </div>
+                  <div className="bg-background border border-border rounded-xl px-3 py-2">
+                    <div className="flex gap-1">
+                      <span className="size-1.5 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="size-1.5 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <span className="size-1.5 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+              <div ref={messagesEndRef} />
+            </>
           )}
         </div>
 
-        {/* Messages Area - expandable */}
-        <AnimatePresence>
-          {isExpanded && messages.length > 0 && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden"
-            >
-              <div className="max-h-48 overflow-y-auto p-4 space-y-3">
-                {messages.map((message) => (
-                  <motion.div
-                    key={message.id}
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className={`flex gap-2 ${message.role === 'user' ? 'flex-row-reverse' : ''}`}
-                  >
-                    {message.role === 'assistant' && (
-                      <div className="shrink-0 size-6 rounded-full bg-secondary flex items-center justify-center">
-                        <Bot className="size-3" />
-                      </div>
-                    )}
-                    <div
-                      className={`max-w-[85%] rounded-xl px-3 py-2 text-sm font-light ${
-                        message.role === 'user'
-                          ? 'bg-primary text-primary-foreground'
-                          : 'bg-secondary'
-                      }`}
-                    >
-                      {message.content}
-                    </div>
-                  </motion.div>
-                ))}
-                
-                {isLoading && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="flex gap-2"
-                  >
-                    <div className="size-6 rounded-full bg-secondary flex items-center justify-center">
-                      <Bot className="size-3" />
-                    </div>
-                    <div className="bg-secondary rounded-xl px-3 py-2">
-                      <div className="flex gap-1">
-                        <span className="size-1.5 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                        <span className="size-1.5 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                        <span className="size-1.5 bg-muted-foreground/50 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-                <div ref={messagesEndRef} />
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         {/* Quick Questions */}
-        {messages.length === 0 && (
-          <div className="px-4 py-2 flex flex-wrap gap-2">
-            {quickQuestions.map((question) => (
-              <button
-                key={question}
-                onClick={() => handleSend(question)}
-                className="px-3 py-1.5 text-xs font-light rounded-full bg-secondary/50 border border-border/50 hover:bg-secondary hover:border-border transition-colors"
-              >
-                {question}
-              </button>
-            ))}
-          </div>
-        )}
+        <div className="px-4 py-2 flex flex-wrap gap-2 border-t border-border/50">
+          {quickQuestions.map((question) => (
+            <button
+              key={question}
+              onClick={() => handleSend(question)}
+              className="px-3 py-1.5 text-xs font-light rounded-full bg-background border border-border/50 hover:bg-secondary hover:border-border transition-colors"
+            >
+              {question}
+            </button>
+          ))}
+        </div>
 
         {/* Input Area */}
         <div className="p-3 border-t border-border/50">
@@ -185,11 +170,6 @@ export function HeroChat() {
           </form>
         </div>
       </div>
-
-      {/* Pointer to content below */}
-      <p className="text-xs text-muted-foreground text-center mt-3 font-light">
-        ↓ Explore detailed information below
-      </p>
     </motion.div>
   );
 }
