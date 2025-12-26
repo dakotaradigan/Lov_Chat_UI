@@ -1,18 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { photographerInfo } from '@/data/photographer';
+import { resumeInfo } from '@/data/resume';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
   { name: 'Home', path: '/' },
-  { name: 'Portfolio', path: '/portfolio' },
-  { name: 'About', path: '/about' },
+  { name: 'Experience', path: '#experience' },
+  { name: 'Skills', path: '#skills' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -28,6 +28,16 @@ export function Header() {
   
   // Header is transparent only on homepage hero when not scrolled
   const isTransparent = location.pathname === '/' && !isScrolled;
+
+  const handleNavClick = (path: string) => {
+    if (path.startsWith('#')) {
+      const element = document.querySelector(path);
+      element?.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
+      return;
+    }
+    setMobileMenuOpen(false);
+  };
 
   return (
     <motion.header
@@ -49,7 +59,7 @@ export function Header() {
             className={cn(
               'text-lg font-light tracking-widest transition-all duration-300',
               isTransparent
-                ? 'text-white hover:text-white/80'
+                ? 'text-foreground hover:text-foreground/80'
                 : 'text-foreground hover:text-foreground/80'
             )}
           >
@@ -58,7 +68,7 @@ export function Header() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {photographerInfo.name.toUpperCase()}
+              {resumeInfo.name.toUpperCase()}
             </motion.span>
           </Link>
 
@@ -71,20 +81,29 @@ export function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 * index }}
                 >
-                  <Link
-                    to={link.path}
-                    className="relative text-lg leading-7 font-light tracking-wide text-white transition-colors duration-300 hover:text-white/80"
-                  >
-                    {link.name}
-                    {/* Active underline */}
-                    {location.pathname === link.path && (
-                      <motion.div
-                        layoutId="activeNav"
-                        className="absolute -bottom-1 left-0 right-0 h-px bg-white"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </Link>
+                  {link.path.startsWith('#') ? (
+                    <button
+                      onClick={() => handleNavClick(link.path)}
+                      className="relative text-lg leading-7 font-light tracking-wide text-foreground transition-colors duration-300 hover:text-muted-foreground"
+                    >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <Link
+                      to={link.path}
+                      className="relative text-lg leading-7 font-light tracking-wide text-foreground transition-colors duration-300 hover:text-muted-foreground"
+                    >
+                      {link.name}
+                      {/* Active underline */}
+                      {location.pathname === link.path && (
+                        <motion.div
+                          layoutId="activeNav"
+                          className="absolute -bottom-1 left-0 right-0 h-px bg-foreground"
+                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        />
+                      )}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             <motion.div
@@ -104,10 +123,7 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={cn(
-                    'size-9',
-                    isTransparent && 'text-white hover:bg-white/10'
-                  )}
+                  className="size-9"
                   aria-label="Open menu"
                 >
                   <Menu className="size-5" />
@@ -116,14 +132,24 @@ export function Header() {
               <SheetContent side="right" className="w-full sm:w-80">
                 <nav className="flex flex-col gap-6 mt-8">
                   {navLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="text-lg leading-7 font-light tracking-wide text-foreground hover:text-foreground/80"
-                    >
-                      {link.name}
-                    </Link>
+                    link.path.startsWith('#') ? (
+                      <button
+                        key={link.path}
+                        onClick={() => handleNavClick(link.path)}
+                        className="text-lg leading-7 font-light tracking-wide text-foreground hover:text-foreground/80 text-left"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link
+                        key={link.path}
+                        to={link.path}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-lg leading-7 font-light tracking-wide text-foreground hover:text-foreground/80"
+                      >
+                        {link.name}
+                      </Link>
+                    )
                   ))}
                 </nav>
               </SheetContent>
