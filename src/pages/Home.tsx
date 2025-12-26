@@ -22,19 +22,19 @@ export default function Home() {
       
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-6 bg-gradient-to-b from-secondary/50 to-background">
+        <section className="relative w-full flex flex-col items-center pt-24 pb-12 px-6 bg-gradient-to-b from-secondary/50 to-background">
           {/* Subtle grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-40" />
           
           <motion.div
-            className="relative text-center space-y-8 max-w-3xl"
+            className="relative text-center space-y-4 max-w-3xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             {/* Name */}
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-extralight tracking-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -64,7 +64,7 @@ export default function Home() {
 
             {/* Contact links */}
             <motion.div
-              className="flex flex-wrap items-center justify-center gap-6 pt-4"
+              className="flex flex-wrap items-center justify-center gap-4 pt-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -109,19 +109,9 @@ export default function Home() {
           </motion.div>
 
           {/* Hero Chat - Ask Me Anything */}
-          <div className="relative mt-12">
+          <div className="relative mt-8 w-full flex justify-center">
             <HeroChat />
           </div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            className="absolute bottom-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-          >
-            <ScrollIndicator />
-          </motion.div>
         </section>
 
         {/* Skills Section */}
