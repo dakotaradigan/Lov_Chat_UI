@@ -3,7 +3,7 @@ import { resumeInfo } from '@/data/resume';
 import { SkillsSection } from '@/components/resume/SkillsSection';
 import { ExperienceSection } from '@/components/resume/ExperienceSection';
 import { EducationSection } from '@/components/resume/EducationSection';
-import { ChatInterface } from '@/components/resume/ChatInterface';
+import { HeroChat } from '@/components/resume/HeroChat';
 import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
@@ -108,12 +108,17 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
+          {/* Hero Chat - Ask Me Anything */}
+          <div className="relative mt-12">
+            <HeroChat />
+          </div>
+
           {/* Scroll Indicator */}
           <motion.div
-            className="absolute bottom-12"
+            className="absolute bottom-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
           >
             <ScrollIndicator />
           </motion.div>
@@ -127,9 +132,6 @@ export default function Home() {
 
         {/* Education Section */}
         <EducationSection />
-
-        {/* Chat Interface */}
-        <ChatInterface />
       </div>
     </>
   );
