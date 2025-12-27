@@ -3,14 +3,14 @@ import { resumeInfo, Skill } from '@/data/resume';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 const categoryLabels: Record<Skill['category'], string> = {
-  languages: 'Languages',
-  frameworks: 'Frameworks & Libraries',
-  tools: 'Tools & DevOps',
-  cloud: 'Cloud Platforms',
+  languages: 'Technical Languages',
+  frameworks: 'Product Strategy',
+  tools: 'Technical Skills',
+  cloud: 'Leadership',
   databases: 'Databases',
 };
 
-const categoryOrder: Skill['category'][] = ['languages', 'frameworks', 'tools', 'cloud', 'databases'];
+const categoryOrder: Skill['category'][] = ['frameworks', 'tools', 'languages', 'cloud'];
 
 export function SkillsSection() {
   const groupedSkills = resumeInfo.skills.reduce((acc, skill) => {
