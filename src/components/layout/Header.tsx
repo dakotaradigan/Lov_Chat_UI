@@ -31,6 +31,11 @@ export function Header() {
   const isTransparent = location.pathname === '/' && !isScrolled;
 
   const handleNavClick = (path: string) => {
+    if (path === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setMobileMenuOpen(false);
+      return;
+    }
     if (path.startsWith('#')) {
       const element = document.querySelector(path);
       element?.scrollIntoView({ behavior: 'smooth' });
@@ -82,7 +87,7 @@ export function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 * index }}
                 >
-                  {link.path.startsWith('#') ? (
+                  {link.path.startsWith('#') || link.path === '/' ? (
                     <button
                       onClick={() => handleNavClick(link.path)}
                       className="relative text-lg leading-7 font-light tracking-wide text-foreground transition-colors duration-300 hover:text-muted-foreground"
@@ -133,7 +138,7 @@ export function Header() {
               <SheetContent side="right" className="w-full sm:w-80">
                 <nav className="flex flex-col gap-6 mt-8">
                   {navLinks.map((link) => (
-                    link.path.startsWith('#') ? (
+                    link.path.startsWith('#') || link.path === '/' ? (
                       <button
                         key={link.path}
                         onClick={() => handleNavClick(link.path)}
