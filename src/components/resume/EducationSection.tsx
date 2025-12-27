@@ -5,7 +5,7 @@ import { GraduationCap, Award } from 'lucide-react';
 
 export function EducationSection() {
   return (
-    <section className="py-20 md:py-28 px-6 lg:px-8 bg-secondary/30 border-t border-border">
+    <section id="education" className="py-20 md:py-28 px-6 lg:px-8 bg-secondary/30 border-t border-border">
       <div className="max-w-4xl mx-auto">
         <ScrollReveal>
           <h2 className="text-3xl md:text-4xl font-light tracking-wide text-center mb-16">
