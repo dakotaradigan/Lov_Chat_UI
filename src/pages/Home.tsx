@@ -4,8 +4,10 @@ import { SkillsSection } from '@/components/resume/SkillsSection';
 import { ExperienceSection } from '@/components/resume/ExperienceSection';
 import { EducationSection } from '@/components/resume/EducationSection';
 import { HeroChat } from '@/components/resume/HeroChat';
+import { ShareButton } from '@/components/resume/ShareButton';
 import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 import { SEOHead } from '@/components/seo/SEOHead';
+import { Toaster } from '@/components/ui/toaster';
 import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
 
 /**
@@ -122,6 +124,10 @@ export default function Home() {
 
         {/* Education Section */}
         <EducationSection />
+
+        {/* Floating Share Button */}
+        <ShareButton />
+        <Toaster />
       </div>
     </>
   );
