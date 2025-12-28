@@ -6,134 +6,138 @@ All colors MUST be HSL.
 */
 
 :root {
-  --background: hsl(210 20% 99%);
-  --foreground: hsl(220 15% 15%);
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(220 15% 15%);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(220 15% 15%);
-  --primary: hsl(220 12% 20%);
-  --primary-foreground: hsl(0 0% 98%);
-  --secondary: hsl(220 14% 96%);
-  --secondary-foreground: hsl(220 12% 20%);
-  --muted: hsl(220 14% 96%);
-  --muted-foreground: hsl(220 8% 46%);
-  --accent: hsl(220 14% 93%);
-  --accent-foreground: hsl(220 12% 20%);
-  --destructive: hsl(0 84.2% 60.2%);
+  /* Soft Sage palette - calm, modern, organic */
+  --background: hsl(80 15% 98%);
+  --foreground: hsl(150 10% 18%);
+  --card: hsl(60 10% 99%);
+  --card-foreground: hsl(150 10% 18%);
+  --popover: hsl(60 10% 99%);
+  --popover-foreground: hsl(150 10% 18%);
+  --primary: hsl(150 12% 22%);
+  --primary-foreground: hsl(60 15% 97%);
+  --secondary: hsl(80 12% 94%);
+  --secondary-foreground: hsl(150 12% 22%);
+  --muted: hsl(80 10% 94%);
+  --muted-foreground: hsl(150 6% 45%);
+  --accent: hsl(80 12% 91%);
+  --accent-foreground: hsl(150 12% 22%);
+  --destructive: hsl(0 65% 55%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(220 13% 91%);
-  --input: hsl(220 13% 91%);
-  --ring: hsl(220 12% 20%);
+  --border: hsl(80 10% 88%);
+  --input: hsl(80 10% 88%);
+  --ring: hsl(150 12% 22%);
   --radius: 0.75rem;
-  --sidebar-background: hsl(210 20% 98%);
-  --sidebar-foreground: hsl(220 10% 30%);
-  --sidebar-primary: hsl(220 12% 20%);
-  --sidebar-primary-foreground: hsl(0 0% 98%);
-  --sidebar-accent: hsl(220 14% 96%);
-  --sidebar-accent-foreground: hsl(220 12% 20%);
-  --sidebar-border: hsl(220 13% 91%);
-  --sidebar-ring: hsl(217 91% 60%);
+  --sidebar-background: hsl(80 15% 97%);
+  --sidebar-foreground: hsl(150 8% 35%);
+  --sidebar-primary: hsl(150 12% 22%);
+  --sidebar-primary-foreground: hsl(60 15% 97%);
+  --sidebar-accent: hsl(80 12% 94%);
+  --sidebar-accent-foreground: hsl(150 12% 22%);
+  --sidebar-border: hsl(80 10% 88%);
+  --sidebar-ring: hsl(145 40% 45%);
 
-  /* Apple-inspired accent colors - soft and elegant */
-  --accent-blue: hsl(211 100% 50%);
-  --accent-blue-soft: hsl(211 100% 96%);
-  --accent-purple: hsl(280 67% 60%);
-  --accent-purple-soft: hsl(280 67% 96%);
-  --accent-teal: hsl(172 66% 50%);
-  --accent-teal-soft: hsl(172 66% 96%);
+  /* Sage accent palette - purposeful, elegant */
+  --accent-sage: hsl(145 25% 42%);
+  --accent-sage-soft: hsl(145 30% 94%);
+  --accent-sage-muted: hsl(145 15% 55%);
+  --accent-olive: hsl(85 20% 45%);
+  --accent-olive-soft: hsl(85 25% 94%);
+  --accent-stone: hsl(40 12% 50%);
+  --accent-stone-soft: hsl(40 15% 95%);
 
-  /* Premium gradients */
-  --gradient-subtle: linear-gradient(135deg, hsl(220 20% 97%) 0%, hsl(210 25% 98%) 100%);
-  --gradient-hero: linear-gradient(180deg, hsl(220 20% 97%) 0%, hsl(210 20% 99%) 100%);
-  --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 20% 98%) 100%);
-  --gradient-text: linear-gradient(135deg, hsl(220 15% 20%) 0%, hsl(220 10% 35%) 100%);
+  /* Premium gradients - sage tones */
+  --gradient-subtle: linear-gradient(135deg, hsl(80 15% 97%) 0%, hsl(60 12% 98%) 100%);
+  --gradient-hero: linear-gradient(180deg, hsl(145 20% 96%) 0%, hsl(80 15% 98%) 100%);
+  --gradient-card: linear-gradient(145deg, hsl(60 10% 99%) 0%, hsl(80 12% 97%) 100%);
+  --gradient-text: linear-gradient(135deg, hsl(150 12% 20%) 0%, hsl(145 18% 35%) 100%);
 
   /* Shugar Design System Variables */
-  --context-card-border: hsla(220, 13%, 91%, 1);
+  --context-card-border: hsl(80 10% 88%);
   --ds-red-800: oklch(58.19% 0.2482 25.15);
   --ds-red-900: oklch(54.99% 0.232 25.29);
   --ds-amber-800: oklch(77.21% 0.1991 64.28);
   --ds-amber-850: hsl(33, 96%, 42%);
-  --ds-gray-100: hsl(220 20% 97%);
-  --ds-gray-400: hsl(220 14% 92%);
-  --ds-gray-700: hsl(220 8% 56%);
-  --ds-gray-1000: hsl(220 15% 12%);
-  --ds-gray-1000-h: hsl(220 10% 25%);
-  --ds-gray-alpha-200: hsla(220, 15%, 0%, 0.05);
-  --ds-gray-alpha-400: hsla(220, 15%, 0%, 0.08);
-  --ds-background-100: hsl(0 0% 100%);
+  --ds-gray-100: hsl(80 12% 96%);
+  --ds-gray-400: hsl(80 10% 90%);
+  --ds-gray-700: hsl(150 6% 50%);
+  --ds-gray-1000: hsl(150 10% 15%);
+  --ds-gray-1000-h: hsl(150 8% 28%);
+  --ds-gray-alpha-200: hsla(150, 10%, 0%, 0.04);
+  --ds-gray-alpha-400: hsla(150, 10%, 0%, 0.07);
+  --ds-background-100: hsl(60 10% 99%);
   --ds-focus-color: var(--ring);
   --ds-focus-ring: 0 0 0 2px var(--ds-background-100), 0 0 0 4px var(--ds-focus-color);
   
-  /* Refined shadows - soft and diffused */
-  --ds-shadow-border: 0 0 0 1px hsla(220, 15%, 0%, 0.04);
-  --ds-shadow-small: 0 1px 3px hsla(220, 15%, 0%, 0.04), 0 1px 2px hsla(220, 15%, 0%, 0.02);
-  --ds-shadow-medium: 0 4px 6px -1px hsla(220, 15%, 0%, 0.05), 0 2px 4px -1px hsla(220, 15%, 0%, 0.03);
-  --ds-shadow-large: 0 10px 25px -3px hsla(220, 15%, 0%, 0.06), 0 4px 10px -2px hsla(220, 15%, 0%, 0.04);
+  /* Refined shadows - warm and soft */
+  --ds-shadow-border: 0 0 0 1px hsla(150, 10%, 0%, 0.03);
+  --ds-shadow-small: 0 1px 3px hsla(150, 10%, 0%, 0.04), 0 1px 2px hsla(150, 10%, 0%, 0.02);
+  --ds-shadow-medium: 0 4px 6px -1px hsla(150, 10%, 0%, 0.05), 0 2px 4px -1px hsla(150, 10%, 0%, 0.03);
+  --ds-shadow-large: 0 10px 25px -3px hsla(150, 10%, 0%, 0.06), 0 4px 10px -2px hsla(150, 10%, 0%, 0.04);
   --ds-shadow-border-small: var(--ds-shadow-border), var(--ds-shadow-small);
-  --ds-shadow-elevated: 0 20px 40px -10px hsla(220, 15%, 0%, 0.1);
+  --ds-shadow-elevated: 0 20px 40px -10px hsla(150, 10%, 0%, 0.1);
 }
 
 .dark {
-  --background: hsl(225 15% 8%);
-  --foreground: hsl(210 20% 95%);
-  --card: hsl(225 15% 10%);
-  --card-foreground: hsl(210 20% 95%);
-  --popover: hsl(225 15% 10%);
-  --popover-foreground: hsl(210 20% 95%);
-  --primary: hsl(210 20% 95%);
-  --primary-foreground: hsl(225 15% 10%);
-  --secondary: hsl(225 12% 14%);
-  --secondary-foreground: hsl(210 20% 95%);
-  --muted: hsl(225 12% 14%);
-  --muted-foreground: hsl(220 10% 55%);
-  --accent: hsl(225 12% 16%);
-  --accent-foreground: hsl(210 20% 95%);
-  --destructive: hsl(0 62.8% 30.6%);
+  /* Soft Sage palette - dark mode */
+  --background: hsl(150 12% 7%);
+  --foreground: hsl(80 15% 92%);
+  --card: hsl(150 10% 9%);
+  --card-foreground: hsl(80 15% 92%);
+  --popover: hsl(150 10% 9%);
+  --popover-foreground: hsl(80 15% 92%);
+  --primary: hsl(80 15% 92%);
+  --primary-foreground: hsl(150 12% 10%);
+  --secondary: hsl(150 10% 12%);
+  --secondary-foreground: hsl(80 15% 92%);
+  --muted: hsl(150 10% 12%);
+  --muted-foreground: hsl(80 8% 55%);
+  --accent: hsl(150 10% 14%);
+  --accent-foreground: hsl(80 15% 92%);
+  --destructive: hsl(0 55% 40%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(225 12% 16%);
-  --input: hsl(225 12% 16%);
-  --ring: hsl(210 20% 80%);
-  --sidebar-background: hsl(225 15% 9%);
-  --sidebar-foreground: hsl(220 10% 70%);
-  --sidebar-primary: hsl(211 100% 60%);
-  --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(225 12% 14%);
-  --sidebar-accent-foreground: hsl(210 20% 95%);
-  --sidebar-border: hsl(225 12% 16%);
-  --sidebar-ring: hsl(211 100% 60%);
+  --border: hsl(150 10% 15%);
+  --input: hsl(150 10% 15%);
+  --ring: hsl(80 12% 75%);
+  --sidebar-background: hsl(150 12% 8%);
+  --sidebar-foreground: hsl(80 10% 65%);
+  --sidebar-primary: hsl(145 40% 55%);
+  --sidebar-primary-foreground: hsl(150 12% 8%);
+  --sidebar-accent: hsl(150 10% 12%);
+  --sidebar-accent-foreground: hsl(80 15% 92%);
+  --sidebar-border: hsl(150 10% 15%);
+  --sidebar-ring: hsl(145 40% 55%);
 
-  /* Apple-inspired accent colors - dark mode */
-  --accent-blue: hsl(211 100% 60%);
-  --accent-blue-soft: hsl(211 100% 15%);
-  --accent-purple: hsl(280 67% 65%);
-  --accent-purple-soft: hsl(280 67% 15%);
-  --accent-teal: hsl(172 66% 55%);
-  --accent-teal-soft: hsl(172 66% 15%);
+  /* Sage accent palette - dark mode */
+  --accent-sage: hsl(145 35% 55%);
+  --accent-sage-soft: hsl(145 25% 14%);
+  --accent-sage-muted: hsl(145 20% 45%);
+  --accent-olive: hsl(85 25% 50%);
+  --accent-olive-soft: hsl(85 20% 14%);
+  --accent-stone: hsl(40 15% 55%);
+  --accent-stone-soft: hsl(40 12% 14%);
 
-  /* Premium gradients - dark mode */
-  --gradient-subtle: linear-gradient(135deg, hsl(225 15% 9%) 0%, hsl(225 12% 10%) 100%);
-  --gradient-hero: linear-gradient(180deg, hsl(225 15% 10%) 0%, hsl(225 15% 8%) 100%);
-  --gradient-card: linear-gradient(145deg, hsl(225 15% 11%) 0%, hsl(225 15% 9%) 100%);
-  --gradient-text: linear-gradient(135deg, hsl(210 20% 95%) 0%, hsl(220 15% 75%) 100%);
+  /* Premium gradients - sage dark mode */
+  --gradient-subtle: linear-gradient(135deg, hsl(150 12% 8%) 0%, hsl(150 10% 9%) 100%);
+  --gradient-hero: linear-gradient(180deg, hsl(150 10% 9%) 0%, hsl(150 12% 7%) 100%);
+  --gradient-card: linear-gradient(145deg, hsl(150 10% 10%) 0%, hsl(150 12% 8%) 100%);
+  --gradient-text: linear-gradient(135deg, hsl(80 15% 92%) 0%, hsl(145 20% 70%) 100%);
 
   /* Shugar Design System Variables - Dark Mode */
-  --context-card-border: hsl(225 12% 18%);
+  --context-card-border: hsl(150 10% 17%);
   --ds-red-800: oklch(58.01% 0.227 25.12);
   --ds-red-900: oklch(69.96% 0.2136 22.03);
   --ds-amber-800: oklch(77.21% 0.1991 64.28);
-  --ds-gray-100: hsl(225 12% 12%);
-  --ds-gray-400: hsl(225 12% 18%);
-  --ds-gray-700: hsl(220 10% 55%);
-  --ds-gray-1000: hsl(210 20% 93%);
-  --ds-gray-1000-h: hsl(210 15% 80%);
-  --ds-gray-alpha-200: hsla(210, 20%, 100%, 0.06);
-  --ds-gray-alpha-400: hsla(210, 20%, 100%, 0.1);
-  --ds-background-100: hsl(225 15% 6%);
+  --ds-gray-100: hsl(150 10% 11%);
+  --ds-gray-400: hsl(150 10% 17%);
+  --ds-gray-700: hsl(80 8% 50%);
+  --ds-gray-1000: hsl(80 15% 90%);
+  --ds-gray-1000-h: hsl(80 12% 75%);
+  --ds-gray-alpha-200: hsla(80, 15%, 100%, 0.05);
+  --ds-gray-alpha-400: hsla(80, 15%, 100%, 0.09);
+  --ds-background-100: hsl(150 12% 5%);
   
   /* Refined shadows - dark mode */
-  --ds-shadow-border: 0 0 0 1px hsla(210, 20%, 100%, 0.06);
+  --ds-shadow-border: 0 0 0 1px hsla(80, 15%, 100%, 0.05);
   --ds-shadow-small: 0 1px 3px hsla(0, 0%, 0%, 0.3), 0 1px 2px hsla(0, 0%, 0%, 0.2);
   --ds-shadow-medium: 0 4px 6px -1px hsla(0, 0%, 0%, 0.3), 0 2px 4px -1px hsla(0, 0%, 0%, 0.2);
   --ds-shadow-large: 0 10px 25px -3px hsla(0, 0%, 0%, 0.4), 0 4px 10px -2px hsla(0, 0%, 0%, 0.25);
@@ -187,13 +191,14 @@ All colors MUST be HSL.
   --shadow-focus-ring: var(--ds-focus-ring);
   --shadow-border-small: var(--ds-shadow-border-small);
 
-  /* Apple-inspired accent colors */
-  --color-accent-blue: var(--accent-blue);
-  --color-accent-blue-soft: var(--accent-blue-soft);
-  --color-accent-purple: var(--accent-purple);
-  --color-accent-purple-soft: var(--accent-purple-soft);
-  --color-accent-teal: var(--accent-teal);
-  --color-accent-teal-soft: var(--accent-teal-soft);
+  /* Sage accent colors */
+  --color-accent-sage: var(--accent-sage);
+  --color-accent-sage-soft: var(--accent-sage-soft);
+  --color-accent-sage-muted: var(--accent-sage-muted);
+  --color-accent-olive: var(--accent-olive);
+  --color-accent-olive-soft: var(--accent-olive-soft);
+  --color-accent-stone: var(--accent-stone);
+  --color-accent-stone-soft: var(--accent-stone-soft);
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -284,6 +289,6 @@ All colors MUST be HSL.
   /* Soft glow on focus */
   .focus-glow:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--accent-blue);
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--accent-sage);
   }
 }

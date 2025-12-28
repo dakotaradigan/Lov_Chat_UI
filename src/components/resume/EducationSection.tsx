@@ -18,8 +18,8 @@ export function EducationSection() {
           <ScrollReveal delay={0.1}>
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="size-8 rounded-xl bg-accent-blue-soft flex items-center justify-center">
-                  <GraduationCap className="size-4 text-accent-blue" />
+                <div className="size-8 rounded-xl bg-accent-sage-soft flex items-center justify-center">
+                  <GraduationCap className="size-4 text-accent-sage" />
                 </div>
                 <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground/70">
                   Education
@@ -44,7 +44,7 @@ export function EducationSection() {
                           {edu.degree} in {edu.field}
                         </p>
                         {edu.honors && (
-                          <p className="text-xs text-accent-blue font-medium">
+                          <p className="text-xs text-accent-sage font-medium">
                             {edu.honors}
                           </p>
                         )}
@@ -63,8 +63,8 @@ export function EducationSection() {
           <ScrollReveal delay={0.2}>
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="size-8 rounded-xl bg-accent-purple-soft flex items-center justify-center">
-                  <Award className="size-4 text-accent-purple" />
+                <div className="size-8 rounded-xl bg-accent-olive-soft flex items-center justify-center">
+                  <Award className="size-4 text-accent-olive" />
                 </div>
                 <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground/70">
                   Certifications

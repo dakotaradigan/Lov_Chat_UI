@@ -57,8 +57,8 @@ export function HeroChat() {
         {/* Header - refined */}
         <div className="px-5 py-4 flex items-center justify-between border-b border-border/30">
           <div className="flex items-center gap-3">
-            <div className="size-8 rounded-xl bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 flex items-center justify-center">
-              <Sparkles className="size-4 text-accent-blue" />
+            <div className="size-8 rounded-xl bg-gradient-to-br from-accent-sage/20 to-accent-olive/20 flex items-center justify-center">
+              <Sparkles className="size-4 text-accent-sage" />
             </div>
             <span className="text-sm font-medium text-foreground/80">
               Ask me anything
@@ -130,7 +130,7 @@ export function HeroChat() {
           e.preventDefault();
           handleSend();
         }} className="flex gap-3">
-            <Input value={input} onChange={e => setInput(e.target.value)} placeholder="Ask about skills, experience, projects..." className="flex-1 h-11 rounded-2xl bg-secondary/30 border-border/30 text-sm focus-visible:ring-1 focus-visible:ring-accent-blue/50 focus-visible:border-accent-blue/50" disabled={isLoading} />
+            <Input value={input} onChange={e => setInput(e.target.value)} placeholder="Ask about skills, experience, projects..." className="flex-1 h-11 rounded-2xl bg-secondary/30 border-border/30 text-sm focus-visible:ring-1 focus-visible:ring-accent-sage/50 focus-visible:border-accent-sage/50" disabled={isLoading} />
             <Button type="submit" size="icon" className="size-11 rounded-2xl shrink-0 bg-foreground hover:bg-foreground/90" disabled={!input.trim() || isLoading}>
               <Send className="size-4" />
             </Button>

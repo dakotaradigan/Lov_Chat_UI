@@ -62,7 +62,7 @@ export function ExperienceSection() {
                           key={i}
                           className="flex items-start gap-2.5 text-sm text-muted-foreground"
                         >
-                          <span className="text-accent-blue mt-1.5 text-lg leading-none">•</span>
+                          <span className="text-accent-sage mt-1.5 text-lg leading-none">•</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
