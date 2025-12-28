@@ -25,15 +25,15 @@ export default function Home() {
       <div className="min-h-screen">
         {/* Hero Section - Apple-inspired elegance */}
         <section className="relative w-full flex flex-col items-center pt-28 pb-16 px-6 overflow-hidden">
-          {/* Soft radial gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-accent-blue-soft/30 via-background to-background" />
+          {/* Soft radial gradient background - sage tones */}
+          <div className="absolute inset-0 bg-gradient-to-b from-accent-sage-soft/40 via-background to-background" />
           
           {/* Subtle dot pattern */}
           <div 
-            className="absolute inset-0 opacity-[0.15]"
+            className="absolute inset-0 opacity-[0.12]"
             style={{
-              backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(var(--muted-foreground)) 1px, transparent 0)',
-              backgroundSize: '32px 32px'
+              backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(var(--muted-foreground)) 0.5px, transparent 0)',
+              backgroundSize: '24px 24px'
             }}
           />
           

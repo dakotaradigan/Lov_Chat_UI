@@ -70,7 +70,7 @@ export function Header() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex items-center gap-2"
             >
-              <span className="size-2 rounded-full bg-accent-blue" />
+              <span className="size-2 rounded-full bg-accent-sage" />
               {resumeInfo.name}
             </motion.span>
           </Link>
